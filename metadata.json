@@ -1,0 +1,12 @@
+{
+    "version": "2022-06-27-1",
+    "description": "ILIAS Api Base",
+    "topics": [
+        "api",
+        "base",
+        "ilias",
+        "library",
+        "php"
+    ],
+    "homepage": "https://github.com/flux-eco/flux-ilias-base-api"
+}
