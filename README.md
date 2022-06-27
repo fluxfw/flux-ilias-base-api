@@ -1,6 +1,6 @@
 # flux-ilias-base-api
 
-ILIAS Api Base
+ILIAS Base Api
 
 ## Installation
 
