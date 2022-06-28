@@ -40,4 +40,18 @@ class OrganisationalUnitPositionDto
             $authorities
         );
     }
+
+
+    public static function newFromObject(
+        object $organisational_unit_position
+    ) : static {
+        return static::new(
+            $organisational_unit_position->id ?? null,
+            $organisational_unit_position->core_position ?? null,
+            ($core_identifier = $organisational_unit_position->core_identifier ?? null) !== null ? OrganisationalUnitPositionCoreIdentifier::from($core_identifier) : null,
+            $organisational_unit_position->title ?? null,
+            $organisational_unit_position->description ?? null,
+            ($authorities = $organisational_unit_position->authorities ?? null) !== null ? array_map([OrganisationalUnitPositionAuthorityDto::class, "newFromObject"], $authorities) : null
+        );
+    }
 }

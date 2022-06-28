@@ -25,4 +25,15 @@ class OrganisationalUnitIdDto
             $ref_id
         );
     }
+
+
+    public static function newFromObject(
+        object $id
+    ) : static {
+        return static::new(
+            $id->id ?? null,
+            $id->external_id ?? null,
+            $id->ref_id ?? null
+        );
+    }
 }

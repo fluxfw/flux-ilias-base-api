@@ -159,6 +159,58 @@ class CourseDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $course
+    ) : static {
+        return static::new(
+            $course->id ?? null,
+            $course->import_id ?? null,
+            $course->ref_id ?? null,
+            $course->created ?? null,
+            $course->updated ?? null,
+            $course->parent_id ?? null,
+            $course->parent_import_id ?? null,
+            $course->parent_ref_id ?? null,
+            $course->url ?? null,
+            $course->icon_url ?? null,
+            $course->title ?? null,
+            $course->description ?? null,
+            $course->period_start ?? null,
+            $course->period_end ?? null,
+            $course->period_time_indication ?? null,
+            $course->online ?? null,
+            $course->availability_start ?? null,
+            $course->availability_end ?? null,
+            $course->availability_always_visible ?? null,
+            $course->calendar ?? null,
+            $course->calendar_block ?? null,
+            $course->news ?? null,
+            $course->manage_custom_metadata ?? null,
+            $course->tag_cloud ?? null,
+            $course->default_object_rating ?? null,
+            $course->badges ?? null,
+            $course->resources ?? null,
+            $course->mail_subject_prefix ?? null,
+            $course->show_members ?? null,
+            $course->show_members_participants_list ?? null,
+            ($mail_to_members_type = $course->mail_to_members_type ?? null) !== null ? CourseMailToMembersType::from($mail_to_members_type) : null,
+            $course->send_welcome_email ?? null,
+            $course->add_to_favourites ?? null,
+            $course->important_information ?? null,
+            $course->syllabus ?? null,
+            $course->target_group ?? null,
+            $course->contact_name ?? null,
+            $course->contact_responsibility ?? null,
+            $course->contact_phone ?? null,
+            $course->contact_email ?? null,
+            $course->contact_consultation ?? null,
+            $course->didactic_template_id ?? null,
+            $course->in_trash ?? null,
+            ($custom_metadata = $course->custom_metadata ?? null) !== null ? array_map([CustomMetadataDto::class, "newFromObject"], $custom_metadata) : null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

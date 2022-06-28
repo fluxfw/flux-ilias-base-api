@@ -19,4 +19,13 @@ class OrganisationalUnitPositionIdDto
             $id
         );
     }
+
+
+    public static function newFromObject(
+        object $id
+    ) : static {
+        return static::new(
+            $id->id ?? null
+        );
+    }
 }

@@ -72,6 +72,29 @@ class CategoryDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $category
+    ) : static {
+        return static::new(
+            $category->id ?? null,
+            $category->import_id ?? null,
+            $category->ref_id ?? null,
+            $category->created ?? null,
+            $category->updated ?? null,
+            $category->parent_id ?? null,
+            $category->parent_import_id ?? null,
+            $category->parent_ref_id ?? null,
+            $category->url ?? null,
+            $category->icon_url ?? null,
+            $category->title ?? null,
+            $category->description ?? null,
+            $category->didactic_template_id ?? null,
+            $category->in_trash ?? null,
+            ($custom_metadata = $category->custom_metadata ?? null) !== null ? array_map([CustomMetadataDto::class, "newFromObject"], $custom_metadata) : null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

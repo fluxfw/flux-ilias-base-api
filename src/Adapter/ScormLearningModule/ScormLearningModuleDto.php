@@ -77,6 +77,33 @@ class ScormLearningModuleDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $scorm_learning_module
+    ) : static {
+        return static::new(
+            $scorm_learning_module->id ?? null,
+            $scorm_learning_module->import_id ?? null,
+            $scorm_learning_module->ref_id ?? null,
+            $scorm_learning_module->created ?? null,
+            $scorm_learning_module->updated ?? null,
+            $scorm_learning_module->parent_id ?? null,
+            $scorm_learning_module->parent_import_id ?? null,
+            $scorm_learning_module->parent_ref_id ?? null,
+            $scorm_learning_module->url ?? null,
+            $scorm_learning_module->icon_url ?? null,
+            $scorm_learning_module->title ?? null,
+            $scorm_learning_module->description ?? null,
+            ($type = $scorm_learning_module->type ?? null) !== null ? ScormLearningModuleType::from($type) : null,
+            $scorm_learning_module->version ?? null,
+            $scorm_learning_module->online ?? null,
+            $scorm_learning_module->authoring_mode ?? null,
+            $scorm_learning_module->sequencing_expert_mode ?? null,
+            $scorm_learning_module->didactic_template_id ?? null,
+            $scorm_learning_module->in_trash ?? null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

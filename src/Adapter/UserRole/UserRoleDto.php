@@ -28,4 +28,16 @@ class UserRoleDto
             $role_import_id
         );
     }
+
+
+    public static function newFromObject(
+        object $user_role
+    ) : static {
+        return static::new(
+            $user_role->user_id ?? null,
+            $user_role->user_import_id ?? null,
+            $user_role->role_id ?? null,
+            $user_role->role_import_id ?? null
+        );
+    }
 }

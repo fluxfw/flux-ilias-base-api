@@ -31,4 +31,17 @@ class UserFavouriteDto
             $object_ref_id
         );
     }
+
+
+    public static function newFromObject(
+        object $user_favourite
+    ) : static {
+        return static::new(
+            $user_favourite->user_id ?? null,
+            $user_favourite->user_import_id ?? null,
+            $user_favourite->object_id ?? null,
+            $user_favourite->object_import_id ?? null,
+            $user_favourite->object_ref_id ?? null
+        );
+    }
 }

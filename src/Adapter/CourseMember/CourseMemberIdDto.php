@@ -31,4 +31,17 @@ class CourseMemberIdDto
             $user_import_id
         );
     }
+
+
+    public static function newFromObject(
+        object $id
+    ) : static {
+        return static::new(
+            $id->course_id ?? null,
+            $id->course_import_id ?? null,
+            $id->course_ref_id ?? null,
+            $id->user_id ?? null,
+            $id->user_import_id ?? null
+        );
+    }
 }

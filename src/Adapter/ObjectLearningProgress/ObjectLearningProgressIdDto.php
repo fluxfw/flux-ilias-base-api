@@ -31,4 +31,17 @@ class ObjectLearningProgressIdDto
             $user_import_id
         );
     }
+
+
+    public static function newFromObject(
+        object $id
+    ) : static {
+        return static::new(
+            $id->object_id ?? null,
+            $id->object_import_id ?? null,
+            $id->object_ref_id ?? null,
+            $id->user_id ?? null,
+            $id->user_import_id ?? null
+        );
+    }
 }

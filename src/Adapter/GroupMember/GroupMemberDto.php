@@ -48,4 +48,22 @@ class GroupMemberDto
             $notification
         );
     }
+
+
+    public static function newFromObject(
+        object $group_member
+    ) : static {
+        return static::new(
+            $group_member->group_id ?? null,
+            $group_member->group_import_id ?? null,
+            $group_member->group_ref_id ?? null,
+            $group_member->user_id ?? null,
+            $group_member->user_import_id ?? null,
+            $group_member->member_role ?? null,
+            $group_member->administrator_role ?? null,
+            ($learning_progress = $group_member->learning_progress ?? null) !== null ? ObjectLearningProgress::from($learning_progress) : null,
+            $group_member->tutorial_support ?? null,
+            $group_member->notification ?? null
+        );
+    }
 }
