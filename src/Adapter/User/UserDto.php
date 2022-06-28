@@ -175,4 +175,61 @@ class UserDto
             $language
         );
     }
+
+
+    public static function newFromObject(
+        object $user
+    ) : static {
+        return static::new(
+            $user->id ?? null,
+            $user->import_id ?? null,
+            $user->external_account ?? null,
+            ($authentication_mode = $user->authentication_mode ?? null) !== null ? UserAuthenticationMode::from($authentication_mode) : null,
+            $user->login ?? null,
+            $user->created_on ?? null,
+            $user->updated_on ?? null,
+            $user->approved_on ?? null,
+            $user->agreed_on ?? null,
+            $user->last_logged_on ?? null,
+            $user->active ?? null,
+            $user->access_unlimited ?? null,
+            $user->access_limited_from ?? null,
+            $user->access_limited_until ?? null,
+            $user->access_limited_object_id ?? null,
+            $user->access_limited_object_import_id ?? null,
+            $user->access_limited_object_ref_id ?? null,
+            $user->access_limited_message ?? null,
+            ($gender = $user->gender ?? null) !== null ? UserGender::from($gender) : null,
+            $user->first_name ?? null,
+            $user->last_name ?? null,
+            $user->title ?? null,
+            $user->avatar_url ?? null,
+            $user->birthday ?? null,
+            $user->institution ?? null,
+            $user->department ?? null,
+            $user->street ?? null,
+            $user->city ?? null,
+            $user->zip_code ?? null,
+            $user->country ?? null,
+            ($selected_country = $user->selected_country ?? null) !== null ? UserSelectedCountry::from($selected_country) : null,
+            $user->phone_office ?? null,
+            $user->phone_home ?? null,
+            $user->phone_mobile ?? null,
+            $user->fax ?? null,
+            $user->email ?? null,
+            $user->second_email ?? null,
+            $user->hobbies ?? null,
+            $user->heard_about_ilias ?? null,
+            $user->general_interests ?? null,
+            $user->offering_helps ?? null,
+            $user->looking_for_helps ?? null,
+            $user->matriculation_number ?? null,
+            $user->client_ip ?? null,
+            $user->location_latitude ?? null,
+            $user->location_longitude ?? null,
+            $user->location_zoom ?? null,
+            ($user_defined_fields = $user->user_defined_fields ?? null) !== null ? array_map([UserDefinedFieldDto::class, "newFromObject"], $user_defined_fields) : null,
+            ($language = $user->language ?? null) !== null ? UserLanguage::from($language) : null
+        );
+    }
 }

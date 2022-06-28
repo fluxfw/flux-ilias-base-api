@@ -77,6 +77,33 @@ class FileDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $file
+    ) : static {
+        return static::new(
+            $file->id ?? null,
+            $file->import_id ?? null,
+            $file->ref_id ?? null,
+            $file->created ?? null,
+            $file->updated ?? null,
+            $file->parent_id ?? null,
+            $file->parent_import_id ?? null,
+            $file->parent_ref_id ?? null,
+            $file->url ?? null,
+            $file->download_url ?? null,
+            $file->icon_url ?? null,
+            $file->title ?? null,
+            $file->description ?? null,
+            $file->version ?? null,
+            $file->name ?? null,
+            $file->size ?? null,
+            $file->mime_type ?? null,
+            $file->didactic_template_id ?? null,
+            $file->in_trash ?? null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

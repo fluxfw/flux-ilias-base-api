@@ -34,4 +34,18 @@ class OrganisationalUnitStaffDto
             $position_id
         );
     }
+
+
+    public static function newFromObject(
+        object $organisational_unit_staff
+    ) : static {
+        return static::new(
+            $organisational_unit_staff->organisational_unit_id ?? null,
+            $organisational_unit_staff->organisational_unit_external_id ?? null,
+            $organisational_unit_staff->organisational_unit_ref_id ?? null,
+            $organisational_unit_staff->user_id ?? null,
+            $organisational_unit_staff->user_import_id ?? null,
+            $organisational_unit_staff->position_id ?? null
+        );
+    }
 }

@@ -72,6 +72,29 @@ class GroupDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $group
+    ) : static {
+        return static::new(
+            $group->id ?? null,
+            $group->import_id ?? null,
+            $group->ref_id ?? null,
+            $group->created ?? null,
+            $group->updated ?? null,
+            $group->parent_id ?? null,
+            $group->parent_import_id ?? null,
+            $group->parent_ref_id ?? null,
+            $group->url ?? null,
+            $group->icon_url ?? null,
+            $group->title ?? null,
+            $group->description ?? null,
+            $group->didactic_template_id ?? null,
+            $group->in_trash ?? null,
+            ($custom_metadata = $group->custom_metadata ?? null) !== null ? array_map([CustomMetadataDto::class, "newFromObject"], $custom_metadata) : null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

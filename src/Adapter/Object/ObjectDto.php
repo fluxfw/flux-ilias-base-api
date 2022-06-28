@@ -83,6 +83,34 @@ class ObjectDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $object
+    ) : static {
+        return static::new(
+            $object->id ?? null,
+            $object->import_id ?? null,
+            $object->ref_id ?? null,
+            $object->ref_ids ?? null,
+            ($type = $object->type ?? null) !== null ? CustomObjectType::factory(
+                $type
+            ) : null,
+            $object->created ?? null,
+            $object->updated ?? null,
+            $object->parent_id ?? null,
+            $object->parent_import_id ?? null,
+            $object->parent_ref_id ?? null,
+            $object->url ?? null,
+            $object->icon_url ?? null,
+            $object->online ?? null,
+            $object->title ?? null,
+            $object->description ?? null,
+            $object->didactic_template_id ?? null,
+            $object->in_trash ?? null,
+            ($custom_metadata = $object->custom_metadata ?? null) !== null ? array_map([CustomMetadataDto::class, "newFromObject"], $custom_metadata) : null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

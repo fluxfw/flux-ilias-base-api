@@ -57,4 +57,25 @@ class CourseMemberDto
             $notification
         );
     }
+
+
+    public static function newFromObject(
+        object $course_member
+    ) : static {
+        return static::new(
+            $course_member->course_id ?? null,
+            $course_member->course_import_id ?? null,
+            $course_member->course_ref_id ?? null,
+            $course_member->user_id ?? null,
+            $course_member->user_import_id ?? null,
+            $course_member->member_role ?? null,
+            $course_member->tutor_role ?? null,
+            $course_member->administrator_role ?? null,
+            ($learning_progress = $course_member->learning_progress ?? null) !== null ? ObjectLearningProgress::from($learning_progress) : null,
+            $course_member->passed ?? null,
+            $course_member->access_refused ?? null,
+            $course_member->tutorial_support ?? null,
+            $course_member->notification ?? null
+        );
+    }
 }

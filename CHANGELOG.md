@@ -11,6 +11,17 @@ Get build:
 - Docker image: `docker-registry.fluxpublisher.ch/flux-ilias-api/base-api:latest`
 - Archive: https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-api/base-api.tar.gz?tag=latest
 
+## v2022-06-28-1
+
+Changes:
+
+- newFromObject in dtos
+
+Get build:
+
+- Docker image: `docker-registry.fluxpublisher.ch/flux-ilias-api/base-api:v2022-06-28-1`
+- Archive: https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-api/base-api.tar.gz?tag=v2022-06-28-1
+
 ## v2022-06-27-2
 
 Changes:

@@ -65,6 +65,29 @@ class FluxIliasRestObjectDto implements JsonSerializable
     }
 
 
+    public static function newFromObject(
+        object $object
+    ) : static {
+        return static::new(
+            $object->id ?? null,
+            $object->import_id ?? null,
+            $object->ref_id ?? null,
+            $object->created ?? null,
+            $object->updated ?? null,
+            $object->parent_id ?? null,
+            $object->parent_import_id ?? null,
+            $object->parent_ref_id ?? null,
+            $object->url ?? null,
+            $object->icon_url ?? null,
+            $object->title ?? null,
+            $object->description ?? null,
+            $object->web_proxy_map_key ?? null,
+            $object->api_proxy_map_key ?? null,
+            $object->in_trash ?? null
+        );
+    }
+
+
     public function jsonSerialize() : object
     {
         $data = get_object_vars($this);

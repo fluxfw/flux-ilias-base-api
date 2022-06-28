@@ -34,4 +34,18 @@ class ObjectLearningProgressDto
             $learning_progress
         );
     }
+
+
+    public static function newFromObject(
+        object $object_learning_progress
+    ) : static {
+        return static::new(
+            $object_learning_progress->object_id ?? null,
+            $object_learning_progress->object_import_id ?? null,
+            $object_learning_progress->object_ref_id ?? null,
+            $object_learning_progress->user_id ?? null,
+            $object_learning_progress->user_import_id ?? null,
+            ($learning_progress = $object_learning_progress->learning_progress ?? null) !== null ? ObjectLearningProgress::from($learning_progress) : null
+        );
+    }
 }

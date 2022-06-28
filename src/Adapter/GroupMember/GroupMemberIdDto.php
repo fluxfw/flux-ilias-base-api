@@ -31,4 +31,17 @@ class GroupMemberIdDto
             $user_import_id
         );
     }
+
+
+    public static function newFromObject(
+        object $id
+    ) : static {
+        return static::new(
+            $id->group_id ?? null,
+            $id->group_import_id ?? null,
+            $id->group_ref_id ?? null,
+            $id->user_id ?? null,
+            $id->user_import_id ?? null
+        );
+    }
 }

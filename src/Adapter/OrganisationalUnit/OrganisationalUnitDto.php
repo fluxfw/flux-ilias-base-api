@@ -55,4 +55,25 @@ class OrganisationalUnitDto
             $didactic_template_id
         );
     }
+
+
+    public static function newFromObject(
+        object $organisational_unit
+    ) : static {
+        return static::new(
+            $organisational_unit->id ?? null,
+            $organisational_unit->ref_id ?? null,
+            $organisational_unit->created ?? null,
+            $organisational_unit->updated ?? null,
+            $organisational_unit->parent_id ?? null,
+            $organisational_unit->parent_external_id ?? null,
+            $organisational_unit->parent_ref_id ?? null,
+            $organisational_unit->url ?? null,
+            $organisational_unit->title ?? null,
+            $organisational_unit->description ?? null,
+            $organisational_unit->type_id ?? null,
+            $organisational_unit->external_id ?? null,
+            $organisational_unit->didactic_template_id ?? null
+        );
+    }
 }

@@ -22,4 +22,14 @@ class UserIdDto
             $import_id
         );
     }
+
+
+    public static function newFromObject(
+        object $id
+    ) : static {
+        return static::new(
+            $id->id ?? null,
+            $id->import_id ?? null
+        );
+    }
 }

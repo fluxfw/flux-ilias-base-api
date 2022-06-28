@@ -43,4 +43,21 @@ class RoleDto
             $description
         );
     }
+
+
+    public static function newFromObject(
+        object $role
+    ) : static {
+        return static::new(
+            $role->id ?? null,
+            $role->import_id ?? null,
+            $role->created ?? null,
+            $role->updated ?? null,
+            $role->object_id ?? null,
+            $role->object_import_id ?? null,
+            $role->object_ref_id ?? null,
+            $role->title ?? null,
+            $role->description ?? null
+        );
+    }
 }
