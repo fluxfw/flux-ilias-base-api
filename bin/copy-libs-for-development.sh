@@ -10,7 +10,7 @@ fi
 if [ -n "$CI_REGISTRY" ] && [ -n "$CI_PROJECT_NAMESPACE" ]; then
     image="$CI_REGISTRY/$CI_PROJECT_NAMESPACE/flux-ilias-base-api"
 else
-    image="docker-registry.fluxpublisher.ch/flux-ilias-api/base-api"
+    image="docker-registry.fluxpublisher.ch/flux-ilias-base-api"
 fi
 
 tag="$1"
