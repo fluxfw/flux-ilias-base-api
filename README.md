@@ -4,8 +4,6 @@ ILIAS Base Api
 
 ## Installation
 
-Hint: Use `latest` as `%tag%` (or omit it) for get the latest build
-
 ### Non-Composer
 
 ```dockerfile
@@ -15,14 +13,12 @@ COPY --from=docker-registry.fluxpublisher.ch/flux-ilias-base-api:%tag% /flux-ili
 or
 
 ```dockerfile
-RUN (mkdir -p /%path%/libs/flux-ilias-base-api && cd /%path%/libs/flux-ilias-base-api && wget -O - https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-base-api.tar.gz?tag=%tag% | tar -xz --strip-components=1)
+RUN (mkdir -p /%path%/libs/flux-ilias-base-api && cd /%path%/libs/flux-ilias-base-api && wget -O - https://github.com/flux-eco/flux-ilias-base-api/releases/download/%tag%/flux-ilias-base-api-%tag%-build.tar.gz | tar -xz --strip-components=1)
 ```
 
 or
 
-Download https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-base-api.tar.gz?tag=%tag% and extract it to `/%path%/libs/flux-ilias-base-api`
-
-Hint: If you use `wget` without pipe use `--content-disposition` to get the correct file name
+Download https://github.com/flux-eco/flux-ilias-base-api/releases/download/%tag%/flux-ilias-base-api-%tag%-build.tar.gz and extract it to `/%path%/libs/flux-ilias-base-api`
 
 #### Usage
 
@@ -41,7 +37,7 @@ require_once __DIR__ . "/%path%/libs/flux-ilias-base-api/autoload.php";
                 "name": "flux/flux-ilias-base-api",
                 "version": "%tag%",
                 "dist": {
-                    "url": "https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-ilias-base-api.tar.gz?tag=%tag%",
+                    "url": "https://github.com/flux-eco/flux-ilias-base-api/releases/download/%tag%/flux-ilias-base-api-%tag%-build.tar.gz",
                     "type": "tar"
                 },
                 "autoload": {
