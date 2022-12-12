@@ -2,6 +2,8 @@
 
 namespace FluxIliasBaseApi\Adapter\User;
 
+use SensitiveParameter;
+
 class UserDiffDto
 {
 
@@ -71,7 +73,7 @@ class UserDiffDto
         ?string $external_account = null,
         ?UserAuthenticationMode $authentication_mode = null,
         ?string $login = null,
-        ?string $password = null,
+        #[SensitiveParameter] ?string $password = null,
         ?bool $active = null,
         ?bool $access_unlimited = null,
         ?int $access_limited_from = null,
